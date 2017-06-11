@@ -1,0 +1,73 @@
+{
+  "name": "PiOSImageLoader",
+  "version": "0.9.4",
+  "summary": "Image loading made easy.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitlab.com/mrcloud/PiOSImageLoader",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mrcloud": "florianp37@me.com"
+  },
+  "source": {
+    "git": "https://gitlab.com/mrcloud/PiOSImageLoader.git",
+    "tag": "0.9.4"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "PiOSImageLoader/Classes/Core/**/*"
+    },
+    {
+      "name": "KingFisher",
+      "source_files": "PiOSImageLoader/Classes/KingFisher/**/*",
+      "dependencies": {
+        "PiOSImageLoader/Core": [
+
+        ],
+        "Kingfisher": [
+          "~> 3.5.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DPiOSKingfisher"
+      }
+    },
+    {
+      "name": "Nuke",
+      "source_files": "PiOSImageLoader/Classes/Nuke/**/*",
+      "dependencies": {
+        "PiOSImageLoader/Core": [
+
+        ],
+        "Nuke": [
+          "~> 5.1"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DPiOSNuke"
+      }
+    },
+    {
+      "name": "SDWebImage",
+      "source_files": "PiOSImageLoader/Classes/SDWebImage/**/*",
+      "dependencies": {
+        "PiOSImageLoader/Core": [
+
+        ],
+        "SDWebImage": [
+          "~> 4.0.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DPiOSSDWebImage"
+      }
+    }
+  ]
+}

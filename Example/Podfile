@@ -1,0 +1,16 @@
+use_frameworks!
+
+target 'RPImageLoader_Example' do
+  pod 'RPImageLoader', :path => '../'
+  pod 'RPImageLoader/KingFisher', :path => '../'
+  pod 'RPImageLoader/Nuke', :path => '../'
+  pod 'RPImageLoader/SDWebImage', :path => '../'
+
+
+  target 'RPImageLoader_Tests' do
+    inherit! :search_paths
+
+  pod 'Quick', '~> 1.0.0'
+  pod 'Nimble', '~> 7.0.1'
+  end
+end
