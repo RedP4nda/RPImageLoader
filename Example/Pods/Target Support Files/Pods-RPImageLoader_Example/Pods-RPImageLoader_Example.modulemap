@@ -1,0 +1,6 @@
+framework module Pods_RPImageLoader_Example {
+  umbrella header "Pods-RPImageLoader_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

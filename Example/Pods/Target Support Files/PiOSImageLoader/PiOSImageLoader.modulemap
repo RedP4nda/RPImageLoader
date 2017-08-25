@@ -1,6 +1,0 @@
-framework module PiOSImageLoader {
-  umbrella header "PiOSImageLoader-umbrella.h"
-
-  export *
-  module * { export * }
-}

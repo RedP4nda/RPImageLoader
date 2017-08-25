@@ -30,6 +30,15 @@ let url = URL(string: "http://www.example.com")!
 ImageLoader().loadImage(url: url, imageView: imageView)
 ```
 
+```swift
+// Or using a placeholder image
+let imageView = UIImageView()
+let url = URL(string: "http://www.example.com")!
+let placeholder = UIImage(named: "imageName")!
+ImageLoader().loadImage(url: url, placeholder: placeholder, imageView: imageView)
+```
+
+
 In order to switch between the provided libraries you just need to update the podfile:
 
 for example from:

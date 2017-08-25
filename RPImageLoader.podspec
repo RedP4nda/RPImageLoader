@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RPImageLoader'
-  s.version          = '0.9'
+  s.version          = '1.0'
   s.summary          = 'Image loading made easy.'
 
   s.description      = <<-DESC
@@ -23,21 +23,21 @@ Pod::Spec.new do |s|
     a.source_files = 'RPImageLoader/Classes/KingFisher/**/*'
     a.dependency 'RPImageLoader/Core'
     a.dependency 'Kingfisher', '~> 3.5.0'
-    a.xcconfig =  { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DPiOSKingfisher' }
+    a.xcconfig =  { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DRPKingfisher' }
   end
 
   s.subspec 'Nuke' do |a|
     a.source_files = 'RPImageLoader/Classes/Nuke/**/*'
     a.dependency 'RPImageLoader/Core'
     a.dependency 'Nuke', '~> 5.1'
-    a.xcconfig =  { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DPiOSNuke' }
+    a.xcconfig =  { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DRPNuke' }
   end
 
   s.subspec 'SDWebImage' do |a|
     a.source_files = 'RPImageLoader/Classes/SDWebImage/**/*'
     a.dependency 'RPImageLoader/Core'
     a.dependency 'SDWebImage', '~> 4.0.0'
-    a.xcconfig =  { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DPiOSSDWebImage' }
+    a.xcconfig =  { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DRPSDWebImage' }
   end
 
 end

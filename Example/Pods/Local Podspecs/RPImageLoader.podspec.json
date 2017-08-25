@@ -1,0 +1,73 @@
+{
+  "name": "RPImageLoader",
+  "version": "0.9",
+  "summary": "Image loading made easy.",
+  "description": "RPImageLoader is a wrapper for asynchronous image-loading libraries for iOS.",
+  "homepage": "https://github.com/RedP4nda/RPImageLoader",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "mrcloud": "florianp37@me.com"
+  },
+  "source": {
+    "git": "https://github.com/RedP4nda/RPImageLoader.git",
+    "tag": "0.9"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "RPImageLoader/Classes/Core/**/*"
+    },
+    {
+      "name": "KingFisher",
+      "source_files": "RPImageLoader/Classes/KingFisher/**/*",
+      "dependencies": {
+        "RPImageLoader/Core": [
+
+        ],
+        "Kingfisher": [
+          "~> 3.5.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DPiOSKingfisher"
+      }
+    },
+    {
+      "name": "Nuke",
+      "source_files": "RPImageLoader/Classes/Nuke/**/*",
+      "dependencies": {
+        "RPImageLoader/Core": [
+
+        ],
+        "Nuke": [
+          "~> 5.1"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DPiOSNuke"
+      }
+    },
+    {
+      "name": "SDWebImage",
+      "source_files": "RPImageLoader/Classes/SDWebImage/**/*",
+      "dependencies": {
+        "RPImageLoader/Core": [
+
+        ],
+        "SDWebImage": [
+          "~> 4.0.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DPiOSSDWebImage"
+      }
+    }
+  ]
+}

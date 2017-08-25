@@ -34,37 +34,58 @@ protocol ImageLoaderAdapter {
      - parameter imageView:     the imageView that should contain the image loaded
      */
     func loadImage(url: URL, imageView: UIImageView)
+    
+    /**
+     load an image using a placeholder in the meantime
+     - parameter url:           the URL of the image to be loaded
+     - parameter placeholder:     the UIImage that should be used as a placeholder
+     - parameter imageView:     the imageView that should contain the image loaded
+     */
+    func loadImage(url: URL, placeholder: UIImage, imageView: UIImageView)
+    
 }
 
 /**
-A class used to load images asynchronously
+ A class used to load images asynchronously
  */
 public class ImageLoader: NSObject {
     /// An adapter used to load the image
-        var imageLoaderAdapter: ImageLoaderAdapter?
-
+    var imageLoaderAdapter: ImageLoaderAdapter?
+    
     /**
      Initializes an imageLoader according the selected implementation
      */
     public override init() {
-        #if PiOSKingfisher
+        #if RPKingfisher
             imageLoaderAdapter = KingFisherAdapter()
         #endif
-        #if PiOSNuke
+        #if RPNuke
             imageLoaderAdapter = NukeAdapter()
         #endif
-        #if PiOSSDWebImage
+        #if RPSDWebImage
             imageLoaderAdapter = SDWebImageAdapter()
         #endif
     }
-
-
+    
+    
     /**
      Load an image with the configured adapter
      - parameter url:           the URL of the image to be loaded
      - parameter imageView:     the imageView that should contain the image loaded
      */
-   public func loadImage(url: URL, imageView: UIImageView) {
+    public func loadImage(url: URL, imageView: UIImageView) {
         self.imageLoaderAdapter?.loadImage(url: url, imageView: imageView)
     }
+    
+    /**
+     load an image using a placeholder in the meantime
+     - parameter url:           the URL of the image to be loaded
+     - parameter placeholder:     the UIImage that should be used as a placeholder
+     - parameter imageView:     the imageView that should contain the image loaded
+     */
+    public func loadImage(url: URL, placeholder: UIImage, imageView: UIImageView){
+        self.imageLoaderAdapter?.loadImage(url: url, placeholder: placeholder, imageView: imageView)
+    }
+    
+    
 }

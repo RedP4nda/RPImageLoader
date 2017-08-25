@@ -29,5 +29,9 @@ class KingFisherAdapter: ImageLoaderAdapter {
     func loadImage(url: URL, imageView: UIImageView) {
         imageView.kf.setImage(with: url)
     }
+    
+    func loadImage(url: URL, placeholder: UIImage, imageView: UIImageView) {
+        imageView.kf.setImage(with: url, placeholder: placeholder)
+    }
 
 }

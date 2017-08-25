@@ -29,5 +29,11 @@ class NukeAdapter: ImageLoaderAdapter {
     func loadImage(url: URL, imageView: UIImageView) {
         Nuke.loadImage(with: url, into: imageView)
     }
+    
+    func loadImage(url: URL, placeholder: UIImage, imageView: UIImageView) {
+        imageView.image = placeholder
+        Nuke.loadImage(with: url, into: imageView)
+    }
+
 
 }

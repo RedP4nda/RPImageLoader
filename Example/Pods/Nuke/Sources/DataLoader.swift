@@ -14,7 +14,7 @@ public protocol DataLoading {
 public final class DataLoader: DataLoading {
     public let session: URLSession
     private let scheduler: AsyncScheduler
-    
+
     /// Initializes `DataLoader` with the given configuration.
     /// - parameter configuration: `URLSessionConfiguration.default` with
     /// `URLCache` with 0 MB memory capacity and 150 MB disk capacity.
@@ -25,21 +25,24 @@ public final class DataLoader: DataLoading {
         self.session = URLSession(configuration: configuration)
         self.scheduler = scheduler
     }
-    
+
     private static var defaultConf: URLSessionConfiguration {
         let conf = URLSessionConfiguration.default
-        conf.urlCache = URLCache(
-            memoryCapacity: 0,
-            diskCapacity: 150 * 1024 * 1024, // 150 MB
-            diskPath: "com.github.kean.Nuke.Cache"
-        )
+        conf.urlCache = DataLoader.sharedUrlCache
         return conf
     }
-    
+
+    /// Shared url cached used by a default `DataLoader`.
+    public static let sharedUrlCache = URLCache(
+        memoryCapacity: 0,
+        diskCapacity: 150 * 1024 * 1024, // 150 MB
+        diskPath: "com.github.kean.Nuke.Cache"
+    )
+
     private static var defaultScheduler: AsyncScheduler {
         return RateLimiter(scheduler: OperationQueueScheduler(maxConcurrentOperationCount: 6))
     }
-    
+
     /// Loads data with the given request.
     public func loadData(with request: Request, token: CancellationToken?, completion: @escaping (Result<(Data, URLResponse)>) -> Void) {
         scheduler.execute(token: token) { finish in

@@ -54,8 +54,10 @@ class SimpleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleImageTableViewCellIdentifier", for: indexPath) as! SimpleImageTableViewCell
 
+        let placeholder = UIImage(named: "mac")!
+        
         if let url = URL(string: "https://placeimg.com/300/300/people/\(indexPath.row)") {
-            self.imageLoader.loadImage(url: url, imageView: cell.cellImageView)
+            self.imageLoader.loadImage(url: url, placeholder: placeholder, imageView: cell.cellImageView)
         }
         return cell
     }

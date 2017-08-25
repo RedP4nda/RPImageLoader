@@ -1,0 +1,6 @@
+framework module RPImageLoader {
+  umbrella header "RPImageLoader-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -29,5 +29,10 @@ class SDWebImageAdapter: ImageLoaderAdapter {
     func loadImage(url: URL, imageView: UIImageView) {
         imageView.sd_setImage(with: url)
     }
+    
+    func loadImage(url: URL, placeholder: UIImage, imageView: UIImageView) {
+        imageView.sd_setImage(with: url, placeholderImage: placeholder)
+    }
+
 
 }
