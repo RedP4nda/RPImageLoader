@@ -92,6 +92,12 @@
 <span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"http://www.example.com"</span><span class="p">)</span><span class="o">!</span>
 <span class="kt">ImageLoader</span><span class="p">()</span><span class="o">.</span><span class="nf">loadImage</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="nv">imageView</span><span class="p">:</span> <span class="n">imageView</span><span class="p">)</span>
 </code></pre>
+<pre class="highlight swift"><code><span class="c1">// Or using a placeholder image</span>
+<span class="k">let</span> <span class="nv">imageView</span> <span class="o">=</span> <span class="kt">UIImageView</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">url</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"http://www.example.com"</span><span class="p">)</span><span class="o">!</span>
+<span class="k">let</span> <span class="nv">placeholder</span> <span class="o">=</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"imageName"</span><span class="p">)</span><span class="o">!</span>
+<span class="kt">ImageLoader</span><span class="p">()</span><span class="o">.</span><span class="nf">loadImage</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="nv">placeholder</span><span class="p">:</span> <span class="n">placeholder</span><span class="p">,</span> <span class="nv">imageView</span><span class="p">:</span> <span class="n">imageView</span><span class="p">)</span>
+</code></pre>
 
 <p>In order to switch between the provided libraries you just need to update the podfile:</p>
 
